@@ -36,23 +36,11 @@ pipeline {
 
          steps {
 
-            withCredentials([[$class: 'UsernamePasswordMultiBinding',
-
-            credentialsId: 'docker-hub', 
-
-            usernameVariable: 'DOCKER_USER_ID', 
-
-            passwordVariable: 'DOCKER_USER_PASSWORD'
-
-            ]]) {
-
-               sh "docker tag jenkins-pipeline_web:latest pdddangha/jenkins-app:qkrtkdgk98!"
+              sh "docker tag jenkins-pipeline_web:latest pdddangha/jenkins-app:qkrtkdgk98!"
 
                sh "docker login -u pdddangha -p qkrtkdgk98!"
 
                sh "docker push pdddangha/jenkins-app:qkrtkdgk98!"
-
-            }
 
          }
 
