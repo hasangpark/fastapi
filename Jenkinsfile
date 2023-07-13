@@ -12,20 +12,6 @@ pipeline {
 
    stages {
 
-      stage("init") {
-
-         steps {
-
-            script {
-
-               gv = load "script.groovy"
-
-            }
-
-         }
-
-      }
-
       stage("Checkout") {
 
          steps {
@@ -41,30 +27,6 @@ pipeline {
          steps {
 
             sh 'docker-compose build web'
-
-         }
-
-      }
-
-      stage("test") {
-
-         when {
-
-            expression {
-
-               params.executeTests
-
-            }
-
-         }
-
-         steps {
-
-            script {
-
-               gv.testApp()
-
-            }
 
          }
 
